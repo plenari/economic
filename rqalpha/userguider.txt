@@ -1,0 +1,4 @@
+#更新数据
+rqalpha update_bundle -d D:\bundle
+#获取配置文件
+rqalpha generate_config
