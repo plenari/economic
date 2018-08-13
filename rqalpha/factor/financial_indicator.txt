@@ -1,0 +1,108 @@
+财务指标表字段（financial_indicator）	解释	公式、备注
+earnings_per_share	基本每股收益：
+fully_diluted_earnings_per_share	稀释每股收益；
+diluted_earnings_per_share	每股收益期末股本摊薄是指企业应当按照属于普通股股东的当期净利润，
+adjusted_earnings_per_share	每股收益扣除/基本是指净利润扣除了非经常损益后得到的每股收益 	
+adjusted_fully_diluted_earnings_per_share	每股收益扣除/稀释是指净利润扣除了非经常损益后得到的每股收益 	
+book_value_per_share	用公司的净资产（包括注册资金、各种公积金、累积盈余等 ，不包括债务）除以总股本，
+operating_cash_flow_per_share	每股经营现金流量是反映每股发行在外的普通股票所平均占有的现金流量 	经营活动产生现金流量净额 / 年度末普通股总股本
+operating_total_revenue_per_share	每股营业总收入	
+operating_revenue_per_share	每股营业收入	
+capital_reserve_per_share	资本公积金是指从公司的利润以外的收入中提取的一种公积金 	每股资本公积金=资本公积金/总股本
+earned_reserve_per_share	盈余公积金是指企业按照规定从税后利润中提取的积累资金 	每股盈余公积金=盈余公积金/总股本
+undistributed_profit_per_share	未分配利润是企业留待以后年度进行分配的结存利润 	每股未分配利润=企业当期未分配利润总额/总股本
+retained_earnings_per_share	每股留存收益	
+cash_flow_per_share	每股现金流量：
+ebit_per_share	股息税前利润：不扣除利息也不扣除所得税的利润，
+free_cash_flow_company_per_share	企业自由现金流量是指扣除税收、
+free_cash_flow_equity_per_share	股权自由现金流量是企业支付所有营运费用、
+dividend_per_share	每股股利是公司股利总额与公司流通股数的比值 	当期发放的现金股利总额 / 总股本
+return_on_equity	净资产收益率（平均）：是衡量上市公司盈利能力的重要指标 	净资产收益率=净利润/平均净资产×100%，
+return_on_equity_weighted_average	净资产收益率（加权）：是衡量上市公司盈利能力的重要指标 	净利润 / 加权平均净资产 × 100%
+return_on_equity_diluted	净资产收益率（摊薄）：是衡量上市公司盈利能力的重要指标	净资产收益率=净利润/期末净资产×100%，
+adjusted_return_on_equity_average	净资产收益率ROE(扣除/平均)： 是衡量上市公司盈利能力的重要指标	（净利润 - 非经常损益）/平均净资产×100%， 平均净资产=（年初净资产+年末净资产）/ 2
+adjusted_return_on_equity_weighted_average	净资产收益率ROE(扣除/加权)： 是衡量上市公司盈利能力的重要指标	扣除净资产收益率=（净利润 - 非经常损益）/加权平均资产×100%
+adjusted_return_on_equity_diluted	净资产收益率ROE(扣除/摊薄)： 是衡量上市公司盈利能力的重要指标	扣除净资产收益率=（净利润 - 非经常损益）/期末净资产×100%
+return_on_asset	总资产报酬率ROA： 是指企业息税前利润与平均总资产之间的比率 	总资产报酬率=（利润总额+利息支出）/平均总资产×100%　
+return_on_asset_net_profit	总资产净利率ROA： 总资产净利率是指公司净利润与平均资产总额的百分比 	总资产净利率=净利润/平均资产总额×100% 平均资产总额=（期初资产总额+期末资产总额）÷2
+return_on_invested_capital	投入资本回报率ROIC： 是指投出和/或使用资金与相关回报
+annual_return_on_equity	年化净资产收益率	
+annual_return_on_asset	年化总资产报酬率	
+annual_return_on_asset_net_profit	年化总资产净利率	
+net_profit_margin	销售净利率： 销售净利率，是净利润占销售收入的百分比，
+gross_profit_margin	销售毛利率： 销售毛利率是指毛利占销售收入的百分比，
+cost_to_sales	销售成本率：
+net_profit_to_revenue	净利润/营业总收入：
+profit_from_operation_to_revenue	营业利润/营业总收入：
+ebit_to_revenue	息税前利润/营业总收入： 与毛利率相对应，销售成本率是用以反映企业每元销售收入所需的成本支出	息税前利润 / 营业总收入
+expense_to_revenue	营业总成本/营业总收入：
+operating_profit_to_profit_before_tax	经营活动净收益/利润总额：
+invesment_profit_to_profit_before_tax	价值变动净收益/利润总额：
+non_operating_profit_to_profit_before_tax	营业外收支净额/利润总额：
+income_tax_to_profit_before_tax	所得税/利润总额：
+adjusted_profit_to_total_profit	扣除非经常损益后的净利润/净利润：
+debt_to_asset_ratio	资产负债率： 资产负债率是企业负债总额占企业资产总额的百分比 	（负债总额 / 资产总额）×100%
+equity_multiplier	权益乘数： 权益乘数又称股本乘数，
+current_asset_to_total_asset	流动资产 / 总资产	
+non_current_asset_to_total_asset	非流动资产 / 总资产	
+interest_bearing_debt_to_capital	带息债务 / 全部投入资本	
+current_debt_to_total_debt	流动负债 / 负债合计	
+non_current_debt_to_total_debt	非流动负债 / 负债合计	
+current_ratio	流动比率： 流动比率也称营运资金比率（Working Capital Ratio）
+quick_ratio	速动比率： 速动比率是指速动资产对流动负债的比率 	速动资产/流动负债
+super_quick_ratio	保守速动比率： 是现金、短期证券投资和应收账款净额三项之和，再除以流动负债的比值 	(现金+ 短期证券+ 应收账款净额) / 流动负债 ×100%
+debt_to_equity_ratio	产权比率是负债总额与所有者权益总额的比率 	负债总额 / 所有者权益总额×100％
+equity_to_debt_ratio	产权比率是负债总额与所有者权益总额的比率	归属母公司股东的权益 / 负债合计
+equity_to_interest_bearing_debt	归属母公司股东的权益/带息债务：产权比率是负债总额与所有者权益总额的比率	归属母公司股东的权益 / 带息债务
+ebit_to_debt	息税折旧摊销前利润/负债合计： 产权比率是负债总额与所有者权益总额的比率	息税折旧摊销前利润 / 负债合计
+ocf_to_debt	经营活动产生的现金流量净额/负债合计： 产权比率是负债总额与所有者权益总额的比率	经营活动产生的现金流量净额 / 负债合计
+ocf_to_interest_bearing_debt	经营活动产生的现金流量净额/带息债务： 产权比率是负债总额与所有者权益总额的比率	经营活动产生的现金流量净额 / 带息债务
+ocf_to_current_ratio	经营活动产生的现金流量净额/流动负债： 产权比率是负债总额与所有者权益总额的比率	经营活动产生的现金流量净额 / 流动负债
+ocf_to_net_debt	经营活动产生的现金流量净额/净债务： 产权比率是负债总额与所有者权益总额的比率	经营活动产生的现金流量净额 / 净债务
+time_interest_earned_ratio	已获利息倍数(EBIT/利息费用)：
+long_term_debt_to_working_capital	利息保障倍数是指企业息税前利润与利息费用之比，又称已获利息倍数，
+account_payable_turnover_rate	应付账款周转率是指年内应付账款的周转率 	（主营业务成本+期末存货成本 - 期初存货成本）
+account_payable_turnover_days	应付账款周转天数	应付账款周转天数 = 365 / 应付账款周转率
+account_receivable_turnover_days	应收账款周转率是指年内应付账款的周转次数 	365 / 应收账款周转率
+inventory_turnover	存货周转率是企业一定时期主营业务成本与平均存货余额的比率	销售（营业）成本 / 平均存货
+account_receivable_turnover_rate	应收账款周转率是指在一定时期内
+current_asset_turnover	流动资产周转率是销售收入与流动资产平均余额的比率 	销售收入净额
+fixed_asset_turnover	固定资产周转率又称为固定资产利用率，
+total_asset_turnover	总资产周转率：
+inc_earnings_per_share	基本每股收益(同比增长率)	
+inc_diluted_earnings_per_share	稀释每股收益(同比增长率)	
+inc_revenue	营业总收入(同比增长率)	
+inc_operating_revenue	营业收入(同比增长率)	
+inc_gross_profit	营业利润(同比增长率)	
+inc_profit_before_tax	利润总额(同比增长率)	
+inc_net_profit	归属母公司股东的净利润(同比增长率)	
+inc_adjusted_net_profit	归属母公司股东的净利润 - 扣除非经常损益(同比增长率)	
+inc_cash_from_operations	经营活动产生的现金流量净额(同比增长率)	
+inc_return_on_equity	净资产收益率(摊薄)(同比增长率)	
+inc_book_per_share	每股净资产(相对年初增长率)	
+inc_total_asset	资产总计(相对年初增长率)	
+du_return_on_equity	净资产收益率ROE(杜邦分析)：
+du_equity_multiplier	权益乘数(杜邦分析)	
+du_asset_turnover_ratio	总资产周转率(杜邦分析)	
+du_profit_margin	净利润/利润总额	
+du_return_on_sales	息税前利润/营业总收入：
+non_recurring_profit_and_loss	非经常性损益是指公司发生的与生产经营无直接联系，
+adjusted_net_profit	非经常性损益是指公司发生的与生产经营无直接联系，
+ebit	息税前利润EBIT：
+ebitda	息税折旧摊销前利润EBITDA： 是企业一定时期的息税前利润与折旧和摊销之和 	
+invested_capital	全部投入资本：
+working_capital	营运资本 	流动资产 - 流动负债
+net_working_capital	净营运资本 	流动资产 - 货币资金 - 无息流动负债
+retained_earnings	留存收益	
+interest_bearing_debt	带息债务： 企业的带息负债	
+net_debt	净债务	
+non_interest_bearing_current_debt	无息流动负债	
+non_interest_bearing_non_current_debt	无息非流动负债	
+fcff	企业自由现金流量FCFF 	
+fcfe	股权自由现金流量FCFE 	
+depreciation_and_amortization	当期计提折旧与摊销	
+ev	企业价值1： 评估公司价值的指标 	含货币资金；股权价值 + 带息债务
+ev_2	企业价值2： 评估公司价值的指标 	股权价值 + 带息债务 - 货币资金
+ev_to_ebitda	企业倍数： 评估公司价值的指标 	企业价值 / 息税折旧摊销前利润
+tangible_asset_to_debt	有形净值/净债务(%)
+tangible_asset_to_interest_bearing_debt	有形净值/带息债务(%)	

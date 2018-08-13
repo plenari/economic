@@ -1,0 +1,1458 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>因子库 &mdash; 文档 | BigQuant</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="genindex.html"/>
+        <link rel="search" title="搜索" href="search.html"/>
+    <link rel="top" title="文档 | BigQuant" href="index.html"/>
+        <link rel="next" title="模块和API概览" href="module_and_api_overview.html"/>
+        <link rel="prev" title="宏观经济数据" href="data_macro_data.html"/>
+    <link rel="stylesheet" href="_static/css/bigquant.css" type="text/css" />
+    
+
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+    <a class="bigquanthome" href="https://bigquant.com/">
+        <img src="https://bigquant.com/static/img/logo-bigquant.png" alt="BigQuant" class="bigquantlogo" title="BigQuant - 你的人工智能量化交易平台"/>
+    </a>
+    <a class="docshome" href="index.html">文档</a>
+
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">编程基础</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="learn_python_in_10_minutes.html">10分钟学会Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="learn_pandas_in_10_minutes.html">10分钟学会Pandas</a></li>
+</ul>
+<p class="caption"><span class="caption-text">数据</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="exchange_markets.html">交易市场</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_market_indexes.html">市场指数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_industry.html">行业列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_trading_days.html">交易日历</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_instruments.html">股票代码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_history_data.html">历史数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_financial_statements.html">财报数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_macro_data.html">宏观经济数据</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">因子库</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">数据字段</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">基本信息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">量价因子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">换手率因子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">估值因子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">资金流</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">财务因子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">股东因子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">技术分析因子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">波动率</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#beta">BETA值</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">示例代码</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">策略开发</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="module_and_api_overview.html">模块和API概览</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="module_introduction.html">M/模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_introduction.html">D/数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html">T/工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datasource.html">DataSource/数据源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_trading_days.html">交易日历 D.trading_days</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_instruments.html">证券代码 D.instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_history_data.html">历史数据 D.history_data</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">因子/特征数据 D.features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">接口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">数据字段</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">基本信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">量价因子</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">换手率因子</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">估值因子</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">资金流</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">财务因子</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">股东因子</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">技术分析因子</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">波动率</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#beta">BETA值</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">示例代码</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data_financial_statements.html">财报数据 D.financial_statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_fast_auto_labeler.html">数据标注 M.fast_auto_labeler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_advanced_auto_labeler.html">高级数据标注 M.advanced_auto_labeler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_general_feature_extractor.html">基础特征抽取 M.general_feature_extractor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_derived_feature_extractor.html">衍生特征抽取 M.derived_feature_extractor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_user_feature_extractor.html">用户自定义特征抽取 M.user_feature_extractor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_transform.html">数据变换 M.transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_join.html">数据连接 M.join</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_filter.html">数据过滤 M.filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_stock_ranker_train.html"> 股票排序学习模型 M.stock_ranker_train</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_stock_ranker_predict.html"> 股票排序学习模型 M.stock_ranker_predict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_stock_ranker_train_rolling.html"> 股票排序学习模型 (滚动版) M.stock_ranker_train_rolling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_random_forest_train.html"> 随机森林模型 M.random_forest_train</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_random_forest_predict.html"> 随机森林模型 M.random_forest_predict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_linear_sgd_train.html"> 线性随机梯度下降模型 M.linear_sgd_train</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_linear_sgd_predict.html"> 线性随机梯度下降模型 M.linear_sgd_predict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_trade.html">交易(支持回测和实盘) M.trade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_multi_strategy_analysis.html">多策略组合分析 M.multi_strategy_analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_cached.html">缓存 M.cached</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html">绘图函数 T.plot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="big_expr.html">表达式引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_trade.html">交易引擎</a></li>
+</ul>
+<p class="caption"><span class="caption-text">其他</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="python_lib_list.html">Python库</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BigQuant 文档</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+    <li><a href="http://bigquant.com/">BigQuant</a> &raquo;</li>
+    <li><a href="index.html">文档</a> &raquo;</li>
+    
+    <li>因子库</li>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="id1">
+<h1>因子库<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>接口<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>因子库访问API</p>
+<dl class="method">
+<dt id="D.features">
+<code class="descclassname">D.</code><code class="descname">features</code><span class="sig-paren">(</span><em>instruments, start_date='2005-01-01', end_date=None, fields=['close_0', 'close_1'], groupped_by_instrument=False, frequency='daily'</em><span class="sig-paren">)</span><a class="headerlink" href="#D.features" title="永久链接至目标">¶</a></dt>
+<dd><p>统一的API，读取因子库数据</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">参数:</th><td class="field-body"><ul class="first last simple">
+<li><strong>instruments</strong> – 字符串数组，股票代码列表，见 <a class="reference internal" href="data_instruments.html"><span class="doc">股票代码</span></a></li>
+<li><strong>start_date</strong> – 字符串，开始日期</li>
+<li><strong>end_date</strong> – 字符串，结束日期</li>
+<li><strong>fields</strong> – 字符串数组，请求的字段列表，详见 <a class="reference internal" href="#id3">数据字段</a></li>
+<li><strong>groupped_by_instrument</strong> – 布尔类型，返回数据是否按instrument分组，如果为True，则返回dict，如果为False，返回的是DataFrame</li>
+<li><strong>frequency</strong> – 数据周期，日，分钟 传入’daily’ or ‘minute’, 目前功能上只支持’daily’</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="id3">
+<h2>数据字段<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="60%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">字段名</th>
+<th class="head">描述</th>
+<th class="head">适用市场</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>date</td>
+<td>交易日期</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>instrument</td>
+<td>证券代码</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id4">
+<h3>基本信息<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="60%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">字段名</th>
+<th class="head">描述</th>
+<th class="head">适用市场</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>list_days_0</td>
+<td>已经上市的天数，按自然日计算</td>
+<td>A股,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>list_board_0</td>
+<td>上市板，主板：1，中小企业板：2，创业板：3</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>company_found_date_0</td>
+<td>公司成立天数</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>st_status_0</td>
+<td>ST状态：0：正常股票，1：ST，2：<a href="#id5"><span class="problematic" id="id6">*</span></a>ST，11：暂停上市</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>industry_sw_level1_0</td>
+<td>申万一级行业类别</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>industry_sw_level2_0</td>
+<td>申万二级行业类别</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>industry_sw_level3_0</td>
+<td>申万三级行业类别</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>in_sse50_0</td>
+<td>是否属于上证50指数成份</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>in_csi300_0</td>
+<td>是否属于沪深300指数成份</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>in_csi500_0</td>
+<td>是否属于中证500指数成份</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>in_csi800_0</td>
+<td>是否属于中证800指数成份</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>in_sse180_0</td>
+<td>是否属于上证180指数成份</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>in_csi100_0</td>
+<td>是否属于中证100指数成份</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>in_szse100_0</td>
+<td>是否属于深证100指数成份</td>
+<td>A股</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id7">
+<h3>量价因子<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="10%" />
+<col width="25%" />
+<col width="45%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">字段名</th>
+<th class="head">$i 取值</th>
+<th class="head">描述</th>
+<th class="head">适用市场</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>open_$i</td>
+<td>[0 .. 20]</td>
+<td>第前i个交易日的开盘价，当天为0</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>high_$i</td>
+<td>[0 .. 20]</td>
+<td>第前i个交易日的最高价</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-even"><td>low_$i</td>
+<td>[0 .. 20]</td>
+<td>第前i个交易日的最低价</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>volume_$i</td>
+<td>[0 .. 20]</td>
+<td>第前i个交易日的交易量</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-even"><td>adjust_factor_$i</td>
+<td>[0 .. 20]</td>
+<td>第前i个交易日的复权因子</td>
+<td>A股,基金,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>deal_number_$i</td>
+<td>[0 .. 20]</td>
+<td>第前i个交易日的成交笔数</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>price_limit_status_$i</td>
+<td>[0 .. 20]</td>
+<td>第前i个交易日的股价在收盘时的涨跌停状态，1表示跌停，2表示未涨跌停，3则表示涨停</td>
+<td>A股,基金</td>
+</tr>
+<tr class="row-odd"><td>close_$i</td>
+<td>[0 .. 120]</td>
+<td>第前i个交易日的收盘价</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-even"><td>daily_return_$i</td>
+<td>[0 .. 20]; 30, 40, 50, 60, 70, 80, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360</td>
+<td>第前i个交易日的收益，=close_i/close_(i+1)</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>return_$i</td>
+<td>[0 .. 20]; 30, 40, 50, 60, 70, 80, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360</td>
+<td>过去i个交易日的收益，=close_0/close_(i+1)</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-even"><td>rank_return_$i</td>
+<td>[0 .. 20]; 30, 40, 50, 60, 70, 80, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360</td>
+<td>过去i个交易日的收益 (return_i) 排名，=从小到大排名序号/总数</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>amount_$i</td>
+<td>[0 .. 120]</td>
+<td>第前i个交易日的交易额</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-even"><td>rank_amount_$i</td>
+<td>[0 .. 120]</td>
+<td>第前i个交易日的交易额百分比排名</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>avg_amount_$i</td>
+<td>[0 .. 20]; 30, 40, 50, 60, 70, 80, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360</td>
+<td>过去i个交易日的平均交易额，0表示今日</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-even"><td>rank_avg_amount_$i</td>
+<td>[0 .. 20]; 30, 40, 50, 60, 70, 80, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360</td>
+<td>过去i个交易日的平均交易额，百分比排名</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id8">
+<h3>换手率因子<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="10%" />
+<col width="25%" />
+<col width="45%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">字段名</th>
+<th class="head">$i 取值</th>
+<th class="head">描述</th>
+<th class="head">适用市场</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>turn_$i</td>
+<td>[0 .. 20]</td>
+<td>第前i个交易日的换手率</td>
+<td>A股,基金,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>rank_turn_$i</td>
+<td>[0 .. 20]</td>
+<td>过去i个交易日的换手率 (turn_i) 排名，=从小到大排名序号/总数</td>
+<td>A股,基金,港股,美股</td>
+</tr>
+<tr class="row-even"><td>avg_turn_$i</td>
+<td>[0 .. 20]; 30, 40, 50, 60, 70, 80, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360</td>
+<td>过去i个交易日的平均换手率，0表示今日</td>
+<td>A股,基金,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>rank_avg_turn_$i</td>
+<td>[0 .. 20]; 30, 40, 50, 60, 70, 80, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360</td>
+<td>过去i个交易日的平均换手率排名，=从小到大排名序号/总数</td>
+<td>A股,基金,港股,美股</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id9">
+<h3>估值因子<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="60%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">字段名</th>
+<th class="head">描述</th>
+<th class="head">适用市场</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>market_cap_0</td>
+<td>总市值</td>
+<td>A股,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>rank_market_cap_0</td>
+<td>总市值，升序百分比排名</td>
+<td>A股,港股,美股</td>
+</tr>
+<tr class="row-even"><td>market_cap_float_0</td>
+<td>流通市值</td>
+<td>A股,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>rank_market_cap_float_0</td>
+<td>流通市值，升序百分比排名</td>
+<td>A股,港股,美股</td>
+</tr>
+<tr class="row-even"><td>pe_ttm_0</td>
+<td>市盈率 (TTM)</td>
+<td>A股,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>rank_pe_ttm_0</td>
+<td>市盈率 (TTM)，升序百分比排名</td>
+<td>A股,港股,美股</td>
+</tr>
+<tr class="row-even"><td>pe_lyr_0</td>
+<td>市盈率 (LYR)</td>
+<td>A股,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>rank_pe_lyr_0</td>
+<td>市盈率 (LYR)，升序百分比排名</td>
+<td>A股,港股,美股</td>
+</tr>
+<tr class="row-even"><td>pb_lf_0</td>
+<td>市净率 (LF)</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>rank_pb_lf_0</td>
+<td>市净率 (LF)，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>pb_mrq_0</td>
+<td>市净率 (MRQ)</td>
+<td>港股,美股</td>
+</tr>
+<tr class="row-odd"><td>rank_pb_mrq_0</td>
+<td>市净率 (MRQ)，升序百分比排名</td>
+<td>港股,美股</td>
+</tr>
+<tr class="row-even"><td>ps_ttm_0</td>
+<td>市销率 (TTM)</td>
+<td>A股,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>rank_ps_ttm_0</td>
+<td>市销率 (TTM)，升序百分比排名</td>
+<td>A股,港股,美股</td>
+</tr>
+<tr class="row-even"><td>west_netprofit_ftm_0</td>
+<td>一致预测净利润（未来12个月）</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>west_eps_ftm_0</td>
+<td>一致预测每股收益（未来12个月）</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>west_avgcps_ftm_0</td>
+<td>一致预测每股现金流（未来12个月）</td>
+<td>A股</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id10">
+<h3>资金流<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="10%" />
+<col width="25%" />
+<col width="45%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">字段名</th>
+<th class="head">$i 取值</th>
+<th class="head">描述</th>
+<th class="head">适用市场</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>mf_net_amount_$i</td>
+<td>[0 .. 20]</td>
+<td>第前i个交易日净主动买入额，= 买入金额 - 卖出金额 (包括超大单、大单、中单或小单)</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>avg_mf_net_amount_$i</td>
+<td>[0 .. 20]</td>
+<td>过去i个交易日平均净主动买入额</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>rank_avg_mf_net_amount_$i</td>
+<td>[0 .. 20]</td>
+<td>过去i个交易日平均净主动买入额排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>mf_net_amount_main_0</td>
+<td>&#160;</td>
+<td>主力净流入净额</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>mf_net_pct_main_0</td>
+<td>&#160;</td>
+<td>主力净流入占比</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>mf_net_amount_xl_0</td>
+<td>&#160;</td>
+<td>超大单净流入净额</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>mf_net_pct_xl_0</td>
+<td>&#160;</td>
+<td>超大单净流入占比</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>mf_net_amount_l_0</td>
+<td>&#160;</td>
+<td>大单净流入净额</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>mf_net_pct_l_0</td>
+<td>&#160;</td>
+<td>大单净流入占比</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>mf_net_amount_m_0</td>
+<td>&#160;</td>
+<td>中单净流入净额</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>mf_net_pct_m_0</td>
+<td>&#160;</td>
+<td>中单净流入占比</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>mf_net_amount_s_0</td>
+<td>&#160;</td>
+<td>小单净流入净额</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>mf_net_pct_s_0</td>
+<td>&#160;</td>
+<td>小单净流入占比</td>
+<td>A股</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id11">
+<h3>财务因子<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="60%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">字段名</th>
+<th class="head">描述</th>
+<th class="head">适用市场</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>fs_publish_date_0</td>
+<td>最近财报发布距今天数，按自然日计算，当天为0</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_quarter_year_0</td>
+<td>财报对应的年份</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_quarter_index_0</td>
+<td>财报对应的季度，取值 1/2/3/4，1表示第一季度，以此类推</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_net_profit_0</td>
+<td>归属母公司股东的净利润</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_net_profit_ttm_0</td>
+<td>归属母公司股东的净利润 (TTM)</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_net_profit_yoy_0</td>
+<td>归属母公司股东的净利润同比增长率</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>rank_fs_net_profit_yoy_0</td>
+<td>归属母公司股东的净利润同比增长率，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_net_profit_qoq_0</td>
+<td>归属母公司股东的净利润单季度环比增长率</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>rank_fs_net_profit_qoq_0</td>
+<td>归属母公司股东的净利润单季度环比增长率，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_deducted_profit_0</td>
+<td>扣除非经常性损益后的净利润</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_deducted_profit_ttm_0</td>
+<td>扣除非经常性损益后的净利润 (TTM)</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_roe_0</td>
+<td>净资产收益率</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>rank_fs_roe_0</td>
+<td>净资产收益率，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_roe_ttm_0</td>
+<td>净资产收益率 (TTM)</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>rank_fs_roe_ttm_0</td>
+<td>净资产收益率 (TTM)，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_roa_0</td>
+<td>总资产报酬率</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>rank_fs_roa_0</td>
+<td>总资产报酬率，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_roa_ttm_0</td>
+<td>总资产报酬率 (TTM)</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>rank_fs_roa_ttm_0</td>
+<td>总资产报酬率 (TTM)，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_gross_profit_margin_0</td>
+<td>销售毛利率</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_gross_profit_margin_ttm_0</td>
+<td>销售毛利率 (TTM)</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_net_profit_margin_0</td>
+<td>销售净利率</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_net_profit_margin_ttm_0</td>
+<td>销售净利率 (TTM)</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_operating_revenue_0</td>
+<td>营业收入</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_operating_revenue_ttm_0</td>
+<td>营业收入 (TTM)</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_operating_revenue_yoy_0</td>
+<td>营业收入同比增长率</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>rank_fs_operating_revenue_yoy_0</td>
+<td>营业收入同比增长率，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_operating_revenue_qoq_0</td>
+<td>营业收入单季度环比增长率</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>rank_fs_operating_revenue_qoq_0</td>
+<td>营业收入单季度环比增长率，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_free_cash_flow_0</td>
+<td>企业自由现金流</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_net_cash_flow_0</td>
+<td>经营活动产生的现金流量净额</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_net_cash_flow_ttm_0</td>
+<td>经营活动现金净流量 (TTM)</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_eps_0</td>
+<td>每股收益</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>rank_fs_eps_0</td>
+<td>每股收益，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_eps_yoy_0</td>
+<td>每股收益同比增长率</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>rank_fs_eps_yoy_0</td>
+<td>每股收益同比增长率，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_bps_0</td>
+<td>每股净资产</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>rank_fs_bps_0</td>
+<td>每股净资产，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_current_assets_0</td>
+<td>流动资产</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_non_current_assets_0</td>
+<td>非流动资产</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_current_liabilities_0</td>
+<td>流动负债</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_non_current_liabilities_0</td>
+<td>非流动负债</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_cash_ratio_0</td>
+<td>现金比率</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>rank_fs_cash_ratio_0</td>
+<td>现金比率，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_common_equity_0</td>
+<td>普通股权益总额</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_cash_equivalents_0</td>
+<td>货币资金</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_account_receivable_0</td>
+<td>应收账款</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_fixed_assets_0</td>
+<td>固定资产</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_proj_matl_0</td>
+<td>工程物资</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_construction_in_process_0</td>
+<td>在建工程</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_fixed_assets_disp_0</td>
+<td>固定资产清理</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_account_payable_0</td>
+<td>应付账款</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_total_liability_0</td>
+<td>负债合计</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_paicl_up_capital_0</td>
+<td>实收资本（或股本）</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_capital_reserves_0</td>
+<td>资本公积金</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_surplus_reserves_0</td>
+<td>盈余公积金</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_undistributed_profit_0</td>
+<td>未分配利润</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_eqy_belongto_parcomsh_0</td>
+<td>归属母公司股东的权益</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_total_equity_0</td>
+<td>所有者权益合计</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_gross_revenues_0</td>
+<td>营业总收入</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_total_operating_costs_0</td>
+<td>营业总成本</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_selling_expenses_0</td>
+<td>销售费用</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_financial_expenses_0</td>
+<td>财务费用</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_general_expenses_0</td>
+<td>管理费用</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_operating_profit_0</td>
+<td>营业利润</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_total_profit_0</td>
+<td>利润总额</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>fs_income_tax_0</td>
+<td>所得税</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>fs_net_income_0</td>
+<td>净利润</td>
+<td>A股</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id12">
+<h3>股东因子<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="60%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">字段名</th>
+<th class="head">描述</th>
+<th class="head">适用市场</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>sh_holder_avg_pct_0</td>
+<td>户均持股比例</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>rank_sh_holder_avg_pct_0</td>
+<td>户均持股比例，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>sh_holder_avg_pct_3m_chng_0</td>
+<td>户均持股比例季度增长率</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>rank_sh_holder_avg_pct_3m_chng_0</td>
+<td>户均持股比例季度增长率，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>sh_holder_avg_pct_6m_chng_0</td>
+<td>户均持股比例半年增长率</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>rank_sh_holder_avg_pct_6m_chng_0</td>
+<td>户均持股比例半年增长率，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>sh_holder_num_0</td>
+<td>股东户数</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>rank_sh_holder_num_0</td>
+<td>股东户数，升序百分比排名</td>
+<td>A股</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id13">
+<h3>技术分析因子<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="10%" />
+<col width="25%" />
+<col width="45%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">字段名</th>
+<th class="head">$i 取值</th>
+<th class="head">描述</th>
+<th class="head">适用市场</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ta_sma_$i_0</td>
+<td>5, 10, 20, 30, 60</td>
+<td>收盘价的i日简单移动平均值</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>ta_ema_$i_0</td>
+<td>5, 10, 20, 30, 60</td>
+<td>收盘价的i日指数移动平均值</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-even"><td>ta_wma_$i_0</td>
+<td>5, 10, 20, 30, 60</td>
+<td>收盘价的i日加权移动平均值</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>ta_ad_0</td>
+<td>&#160;</td>
+<td>收集派发指标</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-even"><td>ta_aroon_down_$i_0</td>
+<td>14, 28</td>
+<td>阿隆指标aroondown，timeperiod=i</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>ta_aroon_up_$i_0</td>
+<td>14, 28</td>
+<td>阿隆指标aroonup，timeperiod=i</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-even"><td>ta_aroonosc_$i_0</td>
+<td>14, 28</td>
+<td>AROONOSC指标，timeperiod=i</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>ta_atr_$i_0</td>
+<td>14, 28</td>
+<td>ATR指标，timeperiod=i</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-even"><td>ta_bbands_upperband_$i_0</td>
+<td>14, 28</td>
+<td>BBANDS指标，timeperiod=i</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>ta_bbands_middleband_$i_0</td>
+<td>14, 28</td>
+<td>BBANDS指标，timeperiod=i</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-even"><td>ta_bbands_lowerband_$i_0</td>
+<td>14, 28</td>
+<td>BBANDS指标，timeperiod=i</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>ta_adx_$i_0</td>
+<td>14, 28</td>
+<td>ADX指标，timeperiod=i</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-even"><td>ta_cci_$i_0</td>
+<td>14, 28</td>
+<td>CCI指标，timeperiod=i</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>ta_macd_macd_12_26_9_0</td>
+<td>&#160;</td>
+<td>MACD</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-even"><td>ta_macd_macdsignal_12_26_9_0</td>
+<td>&#160;</td>
+<td>MACD</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>ta_macd_macdhist_12_26_9_0</td>
+<td>&#160;</td>
+<td>MACD</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-even"><td>ta_obv_0</td>
+<td>&#160;</td>
+<td>OBV指标</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>ta_stoch_slowk_5_3_0_3_0_0</td>
+<td>&#160;</td>
+<td>STOCH (KDJ) 指标K值</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-even"><td>ta_stoch_slowd_5_3_0_3_0_0</td>
+<td>&#160;</td>
+<td>STOCH (KDJ) 指标D值</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>ta_mfi_$i_0</td>
+<td>14, 28</td>
+<td>MFI指标，timeperiod=i</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-even"><td>ta_rsi_$i_0</td>
+<td>14, 28</td>
+<td>RSI指标，timeperiod=i</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>ta_trix_$i_0</td>
+<td>14, 28</td>
+<td>TRIX指标，timeperiod=i</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-even"><td>ta_sar_0</td>
+<td>&#160;</td>
+<td>SAR指标</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>ta_mom_$i_0</td>
+<td>10, 20, 30, 60</td>
+<td>MOM指标，timperiod=i</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-even"><td>ta_willr_$i_0</td>
+<td>14, 28</td>
+<td>WILLR指标，timeperiod=i</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id14">
+<h3>波动率<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="10%" />
+<col width="25%" />
+<col width="45%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">字段名</th>
+<th class="head">$i 取值</th>
+<th class="head">描述</th>
+<th class="head">适用市场</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>swing_volatility_$i_0</td>
+<td>5, 10, 30, 60, 120, 240</td>
+<td>振幅波动率，timeperiod=i</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>rank_swing_volatility_$i_0</td>
+<td>5, 10, 30, 60, 120, 240</td>
+<td>振幅波动率，timeperiod=i，升序百分比排名</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-even"><td>volatility_$i_0</td>
+<td>5, 10, 30, 60, 120, 240</td>
+<td>波动率，timeperiod=i</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+<tr class="row-odd"><td>rank_volatility_$i_0</td>
+<td>5, 10, 30, 60, 120, 240</td>
+<td>波动率，timeperiod=i，升序百分比排名</td>
+<td>A股,基金,期货,港股,美股</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="beta">
+<h3>BETA值<a class="headerlink" href="#beta" title="永久链接至标题">¶</a></h3>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="10%" />
+<col width="25%" />
+<col width="45%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">字段名</th>
+<th class="head">$i 取值</th>
+<th class="head">描述</th>
+<th class="head">适用市场</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>beta_sse50_$i_0</td>
+<td>5, 10, 30, 60, 90, 120, 180</td>
+<td>BETA值(上证50)，timeperiod=i</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>rank_beta_sse50_$i_0</td>
+<td>5, 10, 30, 60, 90, 120, 180</td>
+<td>BETA值(上证50)，timeperiod=i，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>beta_csi300_$i_0</td>
+<td>5, 10, 30, 60, 90, 120, 180</td>
+<td>BETA值(沪深300)，timeperiod=i</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>rank_beta_csi300_$i_0</td>
+<td>5, 10, 30, 60, 90, 120, 180</td>
+<td>BETA值(沪深300)，timeperiod=i，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>beta_csi500_$i_0</td>
+<td>5, 10, 30, 60, 90, 120, 180</td>
+<td>BETA值(中证500)，timeperiod=i</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>rank_beta_csi500_$i_0</td>
+<td>5, 10, 30, 60, 90, 120, 180</td>
+<td>BETA值(中证500)，timeperiod=i，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>beta_csi800_$i_0</td>
+<td>5, 10, 30, 60, 90, 120, 180</td>
+<td>BETA值(中证800)，timeperiod=i</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>rank_beta_csi800_$i_0</td>
+<td>5, 10, 30, 60, 90, 120, 180</td>
+<td>BETA值(中证800)，timeperiod=i，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>beta_sse180_$i_0</td>
+<td>5, 10, 30, 60, 90, 120, 180</td>
+<td>BETA值(上证180)，timeperiod=i</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>rank_beta_sse180_$i_0</td>
+<td>5, 10, 30, 60, 90, 120, 180</td>
+<td>BETA值(上证180)，timeperiod=i，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>beta_csi100_$i_0</td>
+<td>5, 10, 30, 60, 90, 120, 180</td>
+<td>BETA值(中证100)，timeperiod=i</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>rank_beta_csi100_$i_0</td>
+<td>5, 10, 30, 60, 90, 120, 180</td>
+<td>BETA值(中证100)，timeperiod=i，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>beta_szzs_$i_0</td>
+<td>5, 10, 30, 60, 90, 120, 180</td>
+<td>BETA值(上证综指)，timeperiod=i</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>rank_beta_szzs_$i_0</td>
+<td>5, 10, 30, 60, 90, 120, 180</td>
+<td>BETA值(上证综指)，timeperiod=i，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>beta_gem_$i_0</td>
+<td>5, 10, 30, 60, 90, 120, 180</td>
+<td>BETA值(创业板)，timeperiod=i</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>rank_beta_gem_$i_0</td>
+<td>5, 10, 30, 60, 90, 120, 180</td>
+<td>BETA值(创业板)，timeperiod=i，升序百分比排名</td>
+<td>A股</td>
+</tr>
+<tr class="row-even"><td>beta_industry_$i_0</td>
+<td>5, 10, 30, 60, 90, 120, 180</td>
+<td>BETA值(所在行业)，timeperiod=i</td>
+<td>A股</td>
+</tr>
+<tr class="row-odd"><td>rank_beta_industry_$i_0</td>
+<td>5, 10, 30, 60, 90, 120, 180</td>
+<td>BETA值(所在行业)，timeperiod=i，升序百分比排名</td>
+<td>A股</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">所有数据，默认都是 <code class="docutils literal notranslate"><span class="pre">np.float32</span></code> 类型，空值或者缺失值默认是 <code class="docutils literal notranslate"><span class="pre">np.NaN</span></code></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">特征一般形式是 <strong>featurename_$i</strong>，比如 <code class="docutils literal notranslate"><span class="pre">close_0</span></code> 表示今日收盘价，<code class="docutils literal notranslate"><span class="pre">close_7</span></code> 表示向前倒退第7个交易日的收盘价。<strong>$i</strong> 一般用来表示第前几个交易日，具体见上表各特征定义，其中 [a .. b] 表示从a到b之间的整数值都可取。</p>
+</div>
+</div>
+</div>
+<div class="section" id="id15">
+<h2>示例代码<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+<p>获取特征数据:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="o">.</span><span class="n">features</span><span class="p">(</span><span class="n">instruments</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;000001.SZA&#39;</span><span class="p">],</span> <span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2017-01-01&#39;</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span><span class="s1">&#39;2017-01-07&#39;</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;close_1&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="module_and_api_overview.html" class="btn btn-neutral float-right" title="模块和API概览" accesskey="n">下一页 <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="data_macro_data.html" class="btn btn-neutral" title="宏观经济数据" accesskey="p"><span class="fa fa-arrow-circle-left"></span> 上一页</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, BigQuant.
+
+    </p>
+  </div> 
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+
+<script src="https://cdn.bootcss.com/highcharts/5.0.7/highstock.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdn.bootcss.com/highcharts/5.0.7/modules/exporting.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdn.bootcss.com/highcharts/5.0.7/highcharts-more.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://bigquant.com/ss/js/bigcharts.js" type="text/javascript" charset="utf-8"></script>
+<script>
+setInterval(function() {
+  if (typeof $ != 'undefined')
+  $('.bigchart-data>pre').each(function(){
+    if (!Highcharts) return;
+    var data=JSON.parse($(this).html().slice('bigcharts-data-start/'.length, -'/bigcharts-data-end'.length));
+    if (data['stock']) { Highcharts.stockChart(data); } else { Highcharts.chart(data); }
+    $(this).remove();
+  });
+}, 2000);
+</script>
+
+<script type='text/javascript'> var _vds = _vds || []; window._vds = _vds; (function(){ _vds.push(['setAccountId', 'aab706c8f4b762a5']); (function() { var vds = document.createElement('script'); vds.type='text/javascript'; vds.async = true; vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(vds, s); })(); })(); </script>
+<script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?c58f67ca105d070ca7563b4b14210980"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s); })(); </script>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+</body>
+</html>

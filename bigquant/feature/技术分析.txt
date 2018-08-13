@@ -1,0 +1,26 @@
+字段名	$i 取值	描述	适用市场
+ta_sma_$i_0	5, 10, 20, 30, 60	收盘价的i日简单移动平均值	A股,基金,期货,港股,美股
+ta_ema_$i_0	5, 10, 20, 30, 60	收盘价的i日指数移动平均值	A股,基金,期货,港股,美股
+ta_wma_$i_0	5, 10, 20, 30, 60	收盘价的i日加权移动平均值	A股,基金,期货,港股,美股
+ta_ad_0	 	收集派发指标	A股,基金,期货,港股,美股
+ta_aroon_down_$i_0	14, 28	阿隆指标aroondown，timeperiod=i	A股,基金,期货,港股,美股
+ta_aroon_up_$i_0	14, 28	阿隆指标aroonup，timeperiod=i	A股,基金,期货,港股,美股
+ta_aroonosc_$i_0	14, 28	AROONOSC指标，timeperiod=i	A股,基金,期货,港股,美股
+ta_atr_$i_0	14, 28	ATR指标，timeperiod=i	A股,基金,期货,港股,美股
+ta_bbands_upperband_$i_0	14, 28	BBANDS指标，timeperiod=i	A股,基金,期货,港股,美股
+ta_bbands_middleband_$i_0	14, 28	BBANDS指标，timeperiod=i	A股,基金,期货,港股,美股
+ta_bbands_lowerband_$i_0	14, 28	BBANDS指标，timeperiod=i	A股,基金,期货,港股,美股
+ta_adx_$i_0	14, 28	ADX指标，timeperiod=i	A股,基金,期货,港股,美股
+ta_cci_$i_0	14, 28	CCI指标，timeperiod=i	A股,基金,期货,港股,美股
+ta_macd_macd_12_26_9_0	 	MACD	A股,基金,期货,港股,美股
+ta_macd_macdsignal_12_26_9_0	 	MACD	A股,基金,期货,港股,美股
+ta_macd_macdhist_12_26_9_0	 	MACD	A股,基金,期货,港股,美股
+ta_obv_0	 	OBV指标	A股,基金,期货,港股,美股
+ta_stoch_slowk_5_3_0_3_0_0	 	STOCH (KDJ) 指标K值	A股,基金,期货,港股,美股
+ta_stoch_slowd_5_3_0_3_0_0	 	STOCH (KDJ) 指标D值	A股,基金,期货,港股,美股
+ta_mfi_$i_0	14, 28	MFI指标，timeperiod=i	A股,基金,期货,港股,美股
+ta_rsi_$i_0	14, 28	RSI指标，timeperiod=i	A股,基金,期货,港股,美股
+ta_trix_$i_0	14, 28	TRIX指标，timeperiod=i	A股,基金,期货,港股,美股
+ta_sar_0	 	SAR指标	A股,基金,期货,港股,美股
+ta_mom_$i_0	10, 20, 30, 60	MOM指标，timperiod=i	A股,基金,期货,港股,美股
+ta_willr_$i_0	14, 28	WILLR指标，timeperiod=i	A股,基金,期货,港股,美股

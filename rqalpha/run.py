@@ -10,7 +10,7 @@ def run(name,start,end,benchmark,stock,plot):
         --benchmark {4}  -o {5}.pkl'''.format(name,start,end,stock,benchmark,name.split('.')[0]+start))
 
 if __name__=='__main__':
-    name='zijin_liuru.py'
+    name='buy_and_hold.py'
     start=['2015-1-10']#,'2012-10-10','2014-10-10','2016-10-10']
     end='2018-1-1'
     benchmark='000300.XSHG'

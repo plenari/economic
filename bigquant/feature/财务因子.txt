@@ -1,0 +1,70 @@
+字段名	描述	适用市场
+fs_publish_date_0	最近财报发布距今天数，按自然日计算，当天为0	A股
+fs_quarter_year_0	财报对应的年份	A股
+fs_quarter_index_0	财报对应的季度，取值 1/2/3/4，1表示第一季度，以此类推	A股
+fs_net_profit_0	归属母公司股东的净利润	A股
+fs_net_profit_ttm_0	归属母公司股东的净利润 (TTM)	A股
+fs_net_profit_yoy_0	归属母公司股东的净利润同比增长率	A股
+rank_fs_net_profit_yoy_0	归属母公司股东的净利润同比增长率，升序百分比排名	A股
+fs_net_profit_qoq_0	归属母公司股东的净利润单季度环比增长率	A股
+rank_fs_net_profit_qoq_0	归属母公司股东的净利润单季度环比增长率，升序百分比排名	A股
+fs_deducted_profit_0	扣除非经常性损益后的净利润	A股
+fs_deducted_profit_ttm_0	扣除非经常性损益后的净利润 (TTM)	A股
+fs_roe_0	净资产收益率	A股
+rank_fs_roe_0	净资产收益率，升序百分比排名	A股
+fs_roe_ttm_0	净资产收益率 (TTM)	A股
+rank_fs_roe_ttm_0	净资产收益率 (TTM)，升序百分比排名	A股
+fs_roa_0	总资产报酬率	A股
+rank_fs_roa_0	总资产报酬率，升序百分比排名	A股
+fs_roa_ttm_0	总资产报酬率 (TTM)	A股
+rank_fs_roa_ttm_0	总资产报酬率 (TTM)，升序百分比排名	A股
+fs_gross_profit_margin_0	销售毛利率	A股
+fs_gross_profit_margin_ttm_0	销售毛利率 (TTM)	A股
+fs_net_profit_margin_0	销售净利率	A股
+fs_net_profit_margin_ttm_0	销售净利率 (TTM)	A股
+fs_operating_revenue_0	营业收入	A股
+fs_operating_revenue_ttm_0	营业收入 (TTM)	A股
+fs_operating_revenue_yoy_0	营业收入同比增长率	A股
+rank_fs_operating_revenue_yoy_0	营业收入同比增长率，升序百分比排名	A股
+fs_operating_revenue_qoq_0	营业收入单季度环比增长率	A股
+rank_fs_operating_revenue_qoq_0	营业收入单季度环比增长率，升序百分比排名	A股
+fs_free_cash_flow_0	企业自由现金流	A股
+fs_net_cash_flow_0	经营活动产生的现金流量净额	A股
+fs_net_cash_flow_ttm_0	经营活动现金净流量 (TTM)	A股
+fs_eps_0	每股收益	A股
+rank_fs_eps_0	每股收益，升序百分比排名	A股
+fs_eps_yoy_0	每股收益同比增长率	A股
+rank_fs_eps_yoy_0	每股收益同比增长率，升序百分比排名	A股
+fs_bps_0	每股净资产	A股
+rank_fs_bps_0	每股净资产，升序百分比排名	A股
+fs_current_assets_0	流动资产	A股
+fs_non_current_assets_0	非流动资产	A股
+fs_current_liabilities_0	流动负债	A股
+fs_non_current_liabilities_0	非流动负债	A股
+fs_cash_ratio_0	现金比率	A股
+rank_fs_cash_ratio_0	现金比率，升序百分比排名	A股
+fs_common_equity_0	普通股权益总额	A股
+fs_cash_equivalents_0	货币资金	A股
+fs_account_receivable_0	应收账款	A股
+fs_fixed_assets_0	固定资产	A股
+fs_proj_matl_0	工程物资	A股
+fs_construction_in_process_0	在建工程	A股
+fs_fixed_assets_disp_0	固定资产清理	A股
+fs_account_payable_0	应付账款	A股
+fs_total_liability_0	负债合计	A股
+fs_paicl_up_capital_0	实收资本（或股本）	A股
+fs_capital_reserves_0	资本公积金	A股
+fs_surplus_reserves_0	盈余公积金	A股
+fs_undistributed_profit_0	未分配利润	A股
+fs_eqy_belongto_parcomsh_0	归属母公司股东的权益	A股
+fs_total_equity_0	所有者权益合计	A股
+fs_gross_revenues_0	营业总收入	A股
+fs_total_operating_costs_0	营业总成本	A股
+fs_selling_expenses_0	销售费用	A股
+fs_financial_expenses_0	财务费用	A股
+fs_general_expenses_0	管理费用	A股
+fs_operating_profit_0	营业利润	A股
+fs_total_profit_0	利润总额	A股
+fs_income_tax_0	所得税	A股
+fs_net_income_0	净利润	A股
+股东因子

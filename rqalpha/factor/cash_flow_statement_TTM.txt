@@ -1,0 +1,6 @@
+滚动现金流量表字段（cash_flow_statement_TTM）	字段名
+net_finance_cashflowTTM	融资净现金流
+net_operate_cashflowTTM	运营净现金流
+net_invest_cashflowTTM	投资净现金流
+net_cashflowTTM	现金净流量
+sale_service_render_cashTTM	销售商品提供劳务收到的现金

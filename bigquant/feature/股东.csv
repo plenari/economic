@@ -1,0 +1,9 @@
+,字段名,描述,适用市场
+0,sh_holder_avg_pct_0,户均持股比例,A股
+1,rank_sh_holder_avg_pct_0,户均持股比例，升序百分比排名,A股
+2,sh_holder_avg_pct_3m_chng_0,户均持股比例季度增长率,A股
+3,rank_sh_holder_avg_pct_3m_chng_0,户均持股比例季度增长率，升序百分比排名,A股
+4,sh_holder_avg_pct_6m_chng_0,户均持股比例半年增长率,A股
+5,rank_sh_holder_avg_pct_6m_chng_0,户均持股比例半年增长率，升序百分比排名,A股
+6,sh_holder_num_0,股东户数,A股
+7,rank_sh_holder_num_0,股东户数，升序百分比排名,A股

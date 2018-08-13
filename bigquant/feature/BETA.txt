@@ -1,0 +1,19 @@
+字段名	$i 取值	描述	适用市场
+beta_sse50_$i_0	5, 10, 30, 60, 90, 120, 180	BETA值(上证50)，timeperiod=i	A股
+rank_beta_sse50_$i_0	5, 10, 30, 60, 90, 120, 180	BETA值(上证50)，timeperiod=i，升序百分比排名	A股
+beta_csi300_$i_0	5, 10, 30, 60, 90, 120, 180	BETA值(沪深300)，timeperiod=i	A股
+rank_beta_csi300_$i_0	5, 10, 30, 60, 90, 120, 180	BETA值(沪深300)，timeperiod=i，升序百分比排名	A股
+beta_csi500_$i_0	5, 10, 30, 60, 90, 120, 180	BETA值(中证500)，timeperiod=i	A股
+rank_beta_csi500_$i_0	5, 10, 30, 60, 90, 120, 180	BETA值(中证500)，timeperiod=i，升序百分比排名	A股
+beta_csi800_$i_0	5, 10, 30, 60, 90, 120, 180	BETA值(中证800)，timeperiod=i	A股
+rank_beta_csi800_$i_0	5, 10, 30, 60, 90, 120, 180	BETA值(中证800)，timeperiod=i，升序百分比排名	A股
+beta_sse180_$i_0	5, 10, 30, 60, 90, 120, 180	BETA值(上证180)，timeperiod=i	A股
+rank_beta_sse180_$i_0	5, 10, 30, 60, 90, 120, 180	BETA值(上证180)，timeperiod=i，升序百分比排名	A股
+beta_csi100_$i_0	5, 10, 30, 60, 90, 120, 180	BETA值(中证100)，timeperiod=i	A股
+rank_beta_csi100_$i_0	5, 10, 30, 60, 90, 120, 180	BETA值(中证100)，timeperiod=i，升序百分比排名	A股
+beta_szzs_$i_0	5, 10, 30, 60, 90, 120, 180	BETA值(上证综指)，timeperiod=i	A股
+rank_beta_szzs_$i_0	5, 10, 30, 60, 90, 120, 180	BETA值(上证综指)，timeperiod=i，升序百分比排名	A股
+beta_gem_$i_0	5, 10, 30, 60, 90, 120, 180	BETA值(创业板)，timeperiod=i	A股
+rank_beta_gem_$i_0	5, 10, 30, 60, 90, 120, 180	BETA值(创业板)，timeperiod=i，升序百分比排名	A股
+beta_industry_$i_0	5, 10, 30, 60, 90, 120, 180	BETA值(所在行业)，timeperiod=i	A股
+rank_beta_industry_$i_0	5, 10, 30, 60, 90, 120, 180	BETA值(所在行业)，timeperiod=i，升序百分比排名	A股

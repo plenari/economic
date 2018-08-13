@@ -1,0 +1,43 @@
+利润表字段（income_statement）	释义、备注
+revenue	营业总收入：公司经营所取得的收入总额
+operating_revenue	营业收入：公司经营主要业务所取得的收入总额 
+total_expense	营业总成本
+other_operating_revenue	其他经营收入
+other_operating_cost	其他经营成本
+cost_of_goods_sold	营业成本：公司经营主要业务产生的实际成本 
+sales_tax	营业税 
+gross_profit	主营业务利润 
+other_operating_income	其他业务利润：公司除主营业务以外其他销售或其他业务取得的收入，扣除其他业务成本、费用、税金后的利润 【该数据来自旧会计准则】
+selling_expense	销售费用：指企业在销售产品、自制半成品和工业性劳务等过程中发生的各项费用 
+operating_expense	营业费用：产品营业费用指销售产品、自制半成品和提供劳务过程中所发生的费用 【该数据来自旧会计准则】
+ga_expense	管理费用：指企业的行政管理部门为管理和组织经营而发生的各项费用 
+financing_expense	财务费用： 指企业为筹集生产经营所需资金等而发生的费用，包括利息支出（减利息收入）、汇兑损失（减汇兑收益）以及相关的手续费等 
+exchange_gains_or_losses	兑汇损益：发生外币交易后期末账户因此调整时，由于采用不同货币，或同一货币不同比价的汇率核算时产生的、按记账本位币折算的差额 
+asset_depreciation	资产减值损失：指资产的可收回金额低于其账面价值 
+profit_from_operation	营业利润： 企业在其全部销售业务中实现的利润，又称营业利润、经营利润，它包含主营业务利润 
+invest_income_associates	对联营合营企业的投资收益
+fair_value_change_income	公允价值变动净收益
+investment_income	投资收益：指企业进行投资所获得的经济利益 
+subsidy_income	补贴收入： 指国有企业得到的各级财政部门给予的专项补贴收入 【该数据来自旧会计准则】
+asset_impairment	资产减值准备
+interest_income	利息收入
+interest_expense	利息支出
+non_operating_revenue	营业外收入：指企业发生的与其生产经营无直接关系的各项收入，包括固定资产盘盈、非货币性交易收益、出售无形资产收益等 
+non_operating_expense	营业外支出：企业发生的与其生产经营无直接关系的各项支出，如固定资产盘亏、债务重组损失、罚款支出、捐赠支出、非常损失等 
+disposal_loss_on_asset	非流动资产处置净损失：包括固定资产处置损失和无形资产出售损失 
+non_operating_net_profit	营业外收支净额：企业在一定会计期间内经营业务以外所发生的其他各项收入与支出的差额，包括营业外收入和营业外支出两部分 
+profit_before_tax	利润总额： 指税前利润，也就是企业在所得税前一定时期内经营活动的总成果 
+income_tax	所得税：以纳税人的所得额为课税对象的各种税收的统称 
+unrealised_investment_losses	未确认投资损失： 是针对合并会计报表而言的，是在母公司合并了资不抵债的子公司后产生的 
+income_tax_refund	所得税返还
+net_profit	净利润（收益）是指在利润总额中按规定交纳了所得税以后公司的利润留存，一般也称为税后利润或净收入 
+net_profit_parent_company	归属于母公司所有者的净利润： 反映在企业合并净利润中，归属于母公司股东（所有者）所有的那部分净利润 
+retained_profit_at_beginning	年初未分配利润：企业未指定特定用途，留待以后年度处理的利润 
+profit_available_for_distribution	可供分配的利润 【该数据来自旧会计准则】
+profit_available_for_owner_distribution	可供股东分配的利润： 在可分配的利润中扣除按规定提取的法定公积金和法定公益金后即是可供股东分配的利润 【该数据来自旧会计准则】
+other_surplus_reserve	提取任意盈余公积金：任意盈余公积金是根据公司章程及股东会的决议，从公司盈余中提取的公积金  【该数据来自旧会计准则】
+basic_earnings_per_share	基本每股收益：本每股收益是指企业应当按照属于普通股股东的当期净利润，除以发行在外普通股的加权平均数从而计算出的每股收益 
+other_income	其他综合收益：指企业根据企业会计准则规定未在损益中确认的各项利得和损失扣除所得税影响后的净额 
+total_income	综合收益总额：反映企业净利润与其他综合收益的合计金额 
+total_income_parent_company	归属于母公司所有者的综合收益总额
+total_income_minority	归属于少数股东的综合收益总额

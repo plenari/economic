@@ -1,0 +1,18 @@
+,字段名,描述,适用市场
+0,market_cap_0,总市值,"A股,港股,美股"
+1,rank_market_cap_0,总市值，升序百分比排名,"A股,港股,美股"
+2,market_cap_float_0,流通市值,"A股,港股,美股"
+3,rank_market_cap_float_0,流通市值，升序百分比排名,"A股,港股,美股"
+4,pe_ttm_0,市盈率 (TTM),"A股,港股,美股"
+5,rank_pe_ttm_0,市盈率 (TTM)，升序百分比排名,"A股,港股,美股"
+6,pe_lyr_0,市盈率 (LYR),"A股,港股,美股"
+7,rank_pe_lyr_0,市盈率 (LYR)，升序百分比排名,"A股,港股,美股"
+8,pb_lf_0,市净率 (LF),A股
+9,rank_pb_lf_0,市净率 (LF)，升序百分比排名,A股
+10,pb_mrq_0,市净率 (MRQ),"港股,美股"
+11,rank_pb_mrq_0,市净率 (MRQ)，升序百分比排名,"港股,美股"
+12,ps_ttm_0,市销率 (TTM),"A股,港股,美股"
+13,rank_ps_ttm_0,市销率 (TTM)，升序百分比排名,"A股,港股,美股"
+14,west_netprofit_ftm_0,一致预测净利润（未来12个月）,A股
+15,west_eps_ftm_0,一致预测每股收益（未来12个月）,A股
+16,west_avgcps_ftm_0,一致预测每股现金流（未来12个月）,A股

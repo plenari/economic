@@ -1,0 +1,14 @@
+字段名	$i 取值	描述	适用市场
+mf_net_amount_$i	[0 .. 20]	第前i个交易日净主动买入额，= 买入金额 - 卖出金额 (包括超大单、大单、中单或小单)	A股
+avg_mf_net_amount_$i	[0 .. 20]	过去i个交易日平均净主动买入额	A股
+rank_avg_mf_net_amount_$i	[0 .. 20]	过去i个交易日平均净主动买入额排名	A股
+mf_net_amount_main_0	 	主力净流入净额	A股
+mf_net_pct_main_0	 	主力净流入占比	A股
+mf_net_amount_xl_0	 	超大单净流入净额	A股
+mf_net_pct_xl_0	 	超大单净流入占比	A股
+mf_net_amount_l_0	 	大单净流入净额	A股
+mf_net_pct_l_0	 	大单净流入占比	A股
+mf_net_amount_m_0	 	中单净流入净额	A股
+mf_net_pct_m_0	 	中单净流入占比	A股
+mf_net_amount_s_0	 	小单净流入净额	A股
+mf_net_pct_s_0	 	小单净流入占比	A股
