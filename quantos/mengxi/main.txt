@@ -1,0 +1,561 @@
+# 导入函数库
+# !/usr/bin/python
+# -*- coding: utf-8 -*-
+from randomfactor import *
+from QLfactor import *
+
+###########################参数设置######################################
+g.look_back_day = 6 # list初始化长度（需要存多少天数据计算因子）
+g.tc = 2  # 调仓频率
+g.N =50  # 持仓数目
+g.method = "None"  # 机器学习模型训练方法{'None',‘OLS’,'Ridge','Lasso','BayesianRidge'}
+
+#######################################选择因子#######################################
+#因子以字符串形式写在factor_list里面，可以单因子也可以多因子
+#因子写法，请看框架使用说明，类似alpha191,worldquant101的写法
+#调用随机因子： random_alpha(2,g.look_back_day)  
+#调用worldquant101因子 ： worldquant(n) ,n=1,2,3...101
+#调用alph191 因子 ：alpha(n) ,n=1,2,3...191
+
+
+
+
+factor_list = ["close-open",alpha(2)]
+
+
+
+
+
+
+
+##新手可以不用看以下部分的代码################################################
+
+######################################################################################
+
+######################################################################################
+
+######################################################################################
+
+######################################################################################
+
+######################################################################################
+
+######################################################################################
+
+######################################################################################
+
+######################################################################################
+
+######################################################################################
+
+######################################################################################
+
+######################################################################################
+######################################调参库##########################################
+#########回测参数
+g.judge = 1  # 为1则不加入行业代码，为其他则是启动行业中性代码
+g.t = 0  # 记录运行的天数
+g.zombie_stock = 50000000  # 僵尸股成交额筛选参数，建议1亿，约有1000股入选，越大入选股越少
+g.listed = []
+g.buy_amount=[]
+  #换手率计数器
+
+###########机器学习参数######################
+# 模型训练参数
+g.train_period = 10  # 拟合模型周期
+g.train_length = 10  # 训练使用样本天数
+g.lag = 2
+g.y_str = "delta(close()," + str(g.lag) + ")"
+g.model = None
+g.args = {'alpha': 0.5}  # 模型训练参数
+
+factor_weight = [1] * len(factor_list)
+
+
+g.fac = "0*" + "delta(close," + str(g.lag) + ")"
+for i in range(len(factor_list)):
+    g.fac = g.fac + "+" +str(factor_weight[i])+ "*(" + factor_list[i] + ")"
+    
+    
+from sklearn import linear_model
+import numpy as np
+import pandas as pd
+import time
+import re
+from datetime import date
+import talib
+import sys
+import globalvar as gl
+
+gl._init()
+gl.set_value('to_init', g.look_back_day)
+gl.set_value('listed', g.listed)
+from jqdata import *
+from jqlib.alpha191 import *
+from stringtrans import *
+from function import *
+
+g.factor_list = []
+for factor in factor_list:
+    factor = body(factor)
+    factor = repair(factor)
+    g.factor_list.append(factor)
+gl.set_value('factor_list', g.factor_list)
+from MClearning import *
+
+
+# 初始化函数，设定基准等等
+def initialize(context):
+    factor = g.fac
+    print('initial factor is :')
+    print(factor)
+    factor = body(factor)
+    print('factor after compiling is :')
+    print (factor)
+    g.factor = repair(factor)
+
+    set_option('use_real_price', True)  # 用真实价格交易
+    log.set_level('order','error')
+    set_slippage(FixedSlippage(0))  # 将滑点设置为0
+    set_commission(PerTrade(buy_cost=0.0000, sell_cost=0.0000, min_cost=0))  # 手续费设置为0
+    set_benchmark('000905.XSHG')  # 中证500为业绩基准
+    set_variables()  # 初始化所要调用的函数
+    # 选股范围为全市场选股：上证+深证股票
+    g.stockrange = get_index_stocks('000001.XSHG') + get_index_stocks('399106.XSHE')
+    g.banchmark = '000905.XSHG'
+
+
+# 获取整体因子函数，包括基本面
+##################################
+def get_funda_mentals(stocks, date):
+    fundamental_df = get_fundamentals(query(
+        valuation.code, valuation.market_cap, indicator.eps
+    ).filter(
+        valuation.code.in_(stocks)
+    ), date=date
+    )
+    df = fundamental_df.set_index('code')
+    df.columns = repair_list(df.columns)
+    g.listed = g.listed + [df]
+
+
+def repair_list(columns):
+    m = list(columns)
+    for i in range(len(m)):
+        n = m[i].replace('_', '')
+        m[i] = n + '()'
+    return m
+
+
+def start_engine(context, stocks):
+    # 导入函数库
+    # 得到各个因子，基本面与技术面
+    len_listed = g.look_back_day + 3
+    todayStr = str(context.current_dt)[0:10]  # 去掉时分秒，保留年月日
+    previousStr = str(context.previous_date)[0:10]
+    g.todayStr = str(context.current_dt)[0:10]# 去掉时分秒，保留年月日
+    if g.judge != 1 :
+        if g.t % 250 ==0 :
+            g.industrycode=my_industry(stocks)
+    if len(g.listed) < g.look_back_day:
+        get_intialize(stocks, todayStr)
+
+    get_funda_mentals(stocks, todayStr)
+    if g.judge != 1 :
+        g.listed[-1]=pd.concat([g.listed[-1],g.industrycode],axis=1,join='outer')
+    if len(g.listed) > len_listed:
+        del g.listed[0]
+
+    b=list(g.listed[-1].index)
+    for i in range(len(b)):
+        b[i]=b[i] in list(context.portfolio.positions)
+    g.listed[-1]['oldpositions()']=b
+    gl.set_value('listed', g.listed)
+
+    exec(g.factor)
+    # gl.set_value('list',g.listed)
+    g.listed = gl.get_value('listed')
+
+    return 0
+
+
+##################################
+
+def before_trading_start(context):
+    stocks = g.stockrange
+    start_engine(context, stocks)
+## 每根日线运行一次
+## 每根日线运行一次
+def handle_data(context, data):
+
+    if g.method!='None':
+        if g.t % g.train_period == 0 and g.t >= (g.train_length + g.lag):
+            g.model = funcML(g.y_str, g.factor_list, g.train_length, g.lag, g.method, g.args)  # 训练模型，返回model
+    if g.t % g.tc == 0:
+        # 设置可行股票池：用set_feasible_stocks函数剔除当前或者计算样本期间停牌的股票
+        if len(g.listed) >= g.look_back_day:
+            # 运行天数不够训练样本：
+            if g.model == None:
+                target = g.listed[-1][g.factor]
+            else:
+                target = predict(g.model)
+
+            weight =[1] * len(target)
+            all_factor = unit(context, target, weight)
+            newdf = all_factor.sort('total',ascending=False)
+            init_stocks = list(newdf.index)
+            filter_stocks = filter_specials(init_stocks, context)
+            buylist = filter_stocks[:g.N]
+            weight = newdf['weight'][buylist]
+            stockweight = cat_stockweight(context, weight)
+            order_stock_sell(context, data, buylist)
+            order_stock_buy(context, data, buylist, stockweight)
+    g.t += 1
+
+
+# 将权重修改形式
+def cat_stockweight(context, weight):
+    weight = (weight) / float(sum(weight))
+    return list(context.portfolio.portfolio_value * weight)
+
+
+# 将总因子与权重合并
+def unit(context, total, weight):
+    total = pd.DataFrame(total)
+    total.columns = ['total']
+    weight = pd.DataFrame(weight, columns=['weight'])
+    weight.index = total.index
+    newdf = total.join(weight)
+    # df=df.join(df_alpha)
+    # 除掉所有带有nan值的行
+    clean_all_factor = newdf.dropna(axis=0, how='any')
+    return clean_all_factor
+
+
+# 行业中性开始
+def start_tools(context, data):
+    todayStr = str(context.current_dt)[0:10]  # 去掉时分秒，保留年月日
+    previousStr = str(context.previous_date)[0:10]  # 去掉时分秒，保留年月日
+    g.industrycode = ['801010', '801020', '801030', '801050', '801710', '801890', '801080', '801880',
+                      '801110', '801120', '801130', '801140', '801150', '801160', '801170', '801180', '801780',
+                      '801200',
+                      '801210', '801230', '801770', '801760', '801750']
+    num = [21, 12, 64, 14, 21, 42, 27, 23, 6, 11, 14, 17, 38, 25, 26, 42, 4, 35, 10, 11, 11, 4, 19.0]
+    g.industryweight = list(num / sum(num))
+
+
+# 过滤退市，停牌，ST，僵尸股
+
+def filter_specials(stock_list, context):
+    curr_data = get_current_data()
+    h = history(5, '1d', 'money', stock_list, df=False)
+    stock_list = [stock for stock in stock_list if \
+                  (not curr_data[stock].paused)  # 未停牌
+                  and (not curr_data[stock].is_st)  # 非ST
+                  and ('ST' not in curr_data[stock].name)
+                  and ('*' not in curr_data[stock].name)
+                  and ('退' not in curr_data[stock].name)
+                  and (curr_data[stock].low_limit < curr_data[stock].day_open < curr_data[stock].high_limit)
+                  and (h[stock].mean() > g.zombie_stock)]
+    return stock_list
+
+
+##获得卖出信号，并执行卖出操作
+# 输入：context, data，已排序股票列表stock_sort-list类型
+# 输出：none
+def order_stock_sell(context, data, stock_sort):
+    # 对于不需要持仓的股票，全仓卖出
+    for stock in context.portfolio.positions:
+        # 除去排名前g.N个股票（选股！）
+        if stock not in stock_sort:
+            stock_sell = stock
+            order_target_value(stock_sell, 0)
+
+
+# 获得买入信号，并执行买入操作
+# 输入：context, data，已排序股票列表stock_sort-list类型
+# 输出：none
+def order_stock_buy(context, data, stock_sort, stockweight):
+    # 对于需要持仓的股票，按分配到的份额买入
+    i=0
+    j=0
+    for stock in stock_sort:
+        if stock not in context.portfolio.positions:
+            stock_buy = stock_sort[j]
+            target_value = stockweight[j]
+            i+=target_value
+            order_target_value(stock_buy, target_value)
+        j+=1
+    g.buy_amount.append(round(i/context.portfolio.portfolio_value,3))
+    print g.buy_amount
+    print sum(g.buy_amount)/(len(g.buy_amount))
+
+
+# 获取交易日+dt的日期，返回字符串格式，df为负表示date之前截取
+def getDay(precent, dt):
+    for i in range(0, len(g.ATD)):
+        if precent <= g.ATD[i]:
+            t_temp = i
+            if t_temp + dt >= 0:
+                return g.ATD[t_temp + dt]  # present偏移dt天后的日期
+            else:
+                t = datetime.datetime.strptime(g.ATD[0], '%Y-%m-%d') + datetime.timedelta(days=dt)
+                t_str = datetime.datetime.strftime(t, '%Y-%m-%d')
+                return t_str
+
+
+def set_variables():
+    today = date.today()
+    a = get_all_trade_days()  # 取所有交易日:[datetime.date(2005, 1, 4)到datetime.date(2016, 12, 30)]
+    g.ATD = [''] * len(a)  # 获得len(a)维的单位向量
+    for i in range(0, len(a)):
+        g.ATD[i] = a[i].isoformat()  # 转换所有交易日为iso格式:2005-01-04到2016-12-30
+        # 列表会取到2016-12-30，现在需要将大于今天的列表全部砍掉
+        if today <= a[i]:
+            break
+    g.ATD = g.ATD[:i]  # iso格式的交易日：2005-01-04至今
+
+
+# 初始化g.listed定义
+def get_intialize(stocks, date):
+    pre_date = getDay(date, -(g.look_back_day + 1))
+    h = get_price(stocks, start_date=pre_date, end_date=date, frequency='daily',
+                  fields=('open', 'close', 'high', 'low', 'volume', 'money', 'avg'), skip_paused=False, fq=None)
+    m = get_price(g.banchmark, start_date=pre_date, end_date=date, frequency='daily', fields=('open', 'close'),
+                  skip_paused=False, fq=None)
+
+    for i in range(g.look_back_day + 1, 1, -1):
+        pre_date = getDay(date, -i)
+        get_funda_mentals(stocks, pre_date)
+        if g.judge != 1:
+            g.listed[-1]=pd.concat([g.listed[-1],g.industrycode],axis=1,join='outer')
+        g.listed[-1]['opened()'] = h['open'].T[pre_date]
+        g.listed[-1]['close()'] = h['close'].T[pre_date]
+        g.listed[-1]['high()'] = h['high'].T[pre_date]
+        g.listed[-1]['low()'] = h['low'].T[pre_date]
+        g.listed[-1]['volume()'] = h['volume'].T[pre_date]
+        g.listed[-1]['money()'] = h['money'].T[pre_date]
+        g.listed[-1]['avg()'] = h['avg'].T[pre_date]
+        g.listed[-1]['benchmarkindexopened()'] = m['open'].T[pre_date]
+        g.listed[-1]['benchmarkindexclose()'] = m['close'].T[pre_date]
+        g.listed[-1]['oldpositions()']=False
+        gl.set_value('listed', g.listed)
+        exec(g.factor)
+        g.listed = gl.get_value('listed')
+
+#######################因子库###############################
+############################################################
+############################################################
+
+def single_my_001(stock):
+    length = 1
+    stock_inf = attribute_history(stock, length, '1d', fields='close', fq=None, df=False)
+    close = stock_inf['close']
+    alpha = close[-1]
+    return alpha
+
+
+def single_my_002(stock):
+    length = 1
+    stock_inf = attribute_history(stock, length, '1d', fields='open', fq=None, df=False)
+    opend = stock_inf['open']
+    alpha = opend[-1]
+    return alpha
+
+
+def single_my_003(stock):
+    length = 1
+    stock_inf = attribute_history(stock, length, '1d', fields='high', fq=None, df=False)
+    high = stock_inf['high']
+    alpha = high[-1]
+    return alpha
+
+
+def single_my_004(stock):
+    length = 1
+    stock_inf = attribute_history(stock, length, '1d', fields='low', fq=None, df=False)
+    low = stock_inf['low']
+    alpha = low[-1]
+    return alpha
+
+
+def single_my_005(stock):
+    length = 1
+    stock_inf = attribute_history(stock, length, '1d', fields='volume', fq=None, df=False)
+    volume = stock_inf['volume']
+    alpha = volume[-1]
+    return alpha
+
+
+def single_my_006(stock):
+    length = 1
+    stock_inf = attribute_history(stock, length, '1d', fields='money', fq=None, df=False)
+    money = stock_inf['money']
+    alpha = money[-1]
+    return alpha
+
+
+def single_my_007(stock):
+    length = 1
+    stock_inf = attribute_history(stock, length, '1d', fields='avg', fq=None, df=False)
+    avg = stock_inf['avg']
+    alpha = avg[-1]
+    return alpha
+
+
+def single_my_008(stock):
+    length = 1
+    stock_inf = attribute_history(g.banchmark, length, '1d', fields='open', fq=None, df=False)
+    avg = stock_inf['open']
+    alpha = avg[-1]
+    return alpha
+
+
+def single_my_009(stock):
+    length = 1
+    stock_inf = attribute_history(g.banchmark, length, '1d', fields='close', fq=None, df=False)
+    avg = stock_inf['close']
+    alpha = avg[-1]
+    return alpha
+
+
+
+def single_industrycode(stock):
+    dic=get_industry(security=[stock], date=g.todayStr)
+    if 'sw_l1' in dic[stock].keys():
+        industrycode=dic[stock]['sw_l1']['industry_code']
+    else :
+        industrycode=np.nan
+    return industrycode
+    
+
+
+
+
+
+def my_001(stocks):
+    value = list(map(single_my_001, stocks))
+    return pd.DataFrame(value, index=stocks, columns=['close()'])
+
+
+def my_002(stocks):
+    value = list(map(single_my_002, stocks))
+    return pd.DataFrame(value, index=stocks, columns=['opened()'])
+
+
+def my_003(stocks):
+    value = list(map(single_my_003, stocks))
+    return pd.DataFrame(value, index=stocks, columns=['high()'])
+
+
+def my_004(stocks):
+    value = list(map(single_my_004, stocks))
+    return pd.DataFrame(value, index=stocks, columns=['low()'])
+
+
+def my_005(stocks):
+    value = list(map(single_my_005, stocks))
+    return pd.DataFrame(value, index=stocks, columns=['volume()'])
+
+
+def my_006(stocks):
+    value = list(map(single_my_006, stocks))
+    return pd.DataFrame(value, index=stocks, columns=['money()'])
+
+
+def my_007(stocks):
+    value = list(map(single_my_007, stocks))
+    return pd.DataFrame(value, index=stocks, columns=['avg()'])
+
+
+def my_008(stocks):
+    value = list(map(single_my_008, stocks))
+    return pd.DataFrame(value, index=stocks, columns=['benchmarkindexopened()'])
+
+
+def my_009(stocks):
+    value = list(map(single_my_009, stocks))
+    return pd.DataFrame(value, index=stocks, columns=['benchmarkindexclose()'])
+
+
+def my_industry(stocks):
+    value = list(map(single_industrycode, stocks))
+    return pd.DataFrame(value, index=stocks, columns=['industrycode()'])
+##############################################################################
+# Basic element
+def close():
+    s = 'close()'
+    g.listed[-1][s] = my_001(g.stockrange)
+    return s
+
+
+def opened():
+    s = 'opened()'
+    g.listed[-1][s] = my_002(g.stockrange)
+    return s
+
+
+def high():
+    s = 'high()'
+    g.listed[-1][s] = my_003(g.stockrange)
+    return s
+
+
+def low():
+    s = 'low()'
+    g.listed[-1][s] = my_004(g.stockrange)
+    return s
+
+
+def volume():
+    s = 'volume()'
+    g.listed[-1][s] = my_005(g.stockrange)
+    return s
+
+
+def money():
+    s = 'money()'
+    g.listed[-1][s] = my_006(g.stockrange)
+    return s
+
+
+def avg():
+    s = 'avg()'
+    g.listed[-1][s] = my_007(g.stockrange)
+    return s
+
+
+def benchmarkindexopened():
+    s = 'benchmarkindexopened()'
+    g.listed[-1][s] = my_008(g.stockrange)
+    return s
+
+
+def benchmarkindexclose():
+    s = 'benchmarkindexclose()'
+    g.listed[-1][s] = my_009(g.stockrange)
+    return s
+
+
+def marketcap():
+    return 'marketcap()'
+
+def eps():
+    return 'eps()'
+
+def industrycode():
+    return 'industrycode()'
+    
+def oldpositions():
+    return 'oldpositions()'
+
+
+
+
+
+
+
+
+
+
+
